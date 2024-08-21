@@ -64,3 +64,22 @@ form.addEventListener('submit', function (e) {
   
 });
 ```
+## project 3
+```javaScript
+document.getElementById('clock');
+//document.querySelector('#clock')
+
+// let date = new Date();
+// console.log(date.toLocaleTimeString());
+
+//kitne interval tak chalana ha yafir har wakt ka updation khud ho...therefore this function helps out here
+
+setInterval(function () {
+  let date = new Date();
+  // console.log(date.toLocaleTimeString());
+  // mujhe console me nai chalani thi ,mujhe ye document update karna tha, node update karna tha
+
+  clock.innerHTML = date.toLocaleTimeString();
+}, 1000);
+
+```
