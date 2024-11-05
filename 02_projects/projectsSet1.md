@@ -60,6 +60,15 @@ form.addEventListener('submit', function (e) {
     const bmi = weight / ((height * height) / 10000);
     //show the result
     results.innerHTML = `<span>${bmi}</span>`;
+
+     if (bmi < 18.6) {
+      // const what= document.querySelector('#under')
+      results2.innerHTML = `<span>under weight</span>`;
+    } else if (bmi > 24.9) {
+      results2.innerHTML = `<span>over weight</span>`;
+    } else {
+      results2.innerHTML = `<span>normal weight</span>`;
+    }
   }
   
 });
