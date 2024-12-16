@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>setTiomeOut</title>
+</head>
+<body>
+    <h1>Chai aur code</h1>
+    <button id="stop">stop</button>
+</body>
+<script>
+    /* setTimeout(function(){
+           console.log("hitesh");
+       }, 2000)*/
+
+ //or by giving REFERENCE of function
+    const sayHitesh = function(){
+        console.log("Hitesh");
+    }
+    const changeText = function(){
+        document.querySelector('h1').innerHTML = "best js series"
+    }
+
+    setTimeout(sayHitesh, 2000)
+
+    //now we are doing **clearTimeout** jisse hum us event ko honese stop kardia
+    const changeMe = setTimeout(changeText, 2000)
+
+    document.querySelector('#stop').addEventListener('click',function(){
+        clearTimeout(changeMe)
+        console.log("STOPED");
+    })
+
+</script>
+</html>
