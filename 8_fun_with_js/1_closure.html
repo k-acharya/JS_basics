@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="orange">Orange</button>
+    <button id="green">Green</button>
+</body>
+<script>
+    function init() {
+       var name = "Mozilla"; // name is a local variable created by init
+       function displayName() {
+         // displayName() is the inner function, that forms a closure
+         console.log(name); // use variable declared in the parent function
+       }
+       displayName();
+    }
+    init();
+
+// lexical scoping:
+
+    function outer(){
+        let username = "hitesh"
+        // console.log(secret); //toh bade choto se nai mang sakte
+        function inner(){
+            let secret = "my123"
+            console.log("inner", username); //see here it can have access to the variable of its parent function
+        }
+        function innertwo(){
+            console.log("innertwo", username);
+            // console.log(secret); //nope bhai bhai apas me share nai karenge bass parents se dono lenge
+        }
+        inner()
+    }
+    outer()
+    // console.log("TOO OUTER", username); //but it will show error cuz it can't access variable from outside of that fuction
+    
+</script>
+<script>
+    /* document.getElementById("orange").onclick = function(){
+           document.body.style.backgroundColor = `orange`
+       }
+       document.getElementById("green").onclick = function(){
+           document.body.style.backgroundColor = `green`
+       }*/
+    //but agar 100 times button dedia and bola ki color change karo tab toh repeat me problem hoga
+
+    function clickhandler(color){
+        // document.body.style.backgroundColor = `${color}`
+        return function(){
+            document.body.style.backgroundColor = `${color}`
+        }
+    }
+    //so ye ak real world issue ha jaha pe lexical scoping ne bachaya tha
+    document.getElementById('orange').onclick = clickhandler("orange")
+    document.getElementById('green').onclick = clickhandler("green")
+
+</script>
+    
+</html>
